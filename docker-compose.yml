@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - acct-net
+
+
+#  acct:
+#    build: .
+#    volumes:
+#      - type: bind
+#        source: ./
+#        target: /acc-tournament
+#    ports:
+#      - 3000:3000
+#    networks:
+#      - acct-net
+
+
+networks:
+  acct-net:

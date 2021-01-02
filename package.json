@@ -1,0 +1,46 @@
+{
+  "name": "Projet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "code-style": "xo"
+  },
+  "dependencies": {
+    "connect": "^3.7.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "fast-csv": "^4.3.6",
+    "json2csv": "^5.0.5",
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "mongoose": "^5.11.9",
+    "ramda": "^0.27.1"
+  },
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "fs-extra": "^9.0.1",
+    "gulp": "^4.0.2",
+    "xo": "^0.36.1"
+  },
+  "xo": {
+    "space": 2,
+    "prettier": true,
+    "rules": {
+      "unicorn/no-fn-reference-in-iterator": 0,
+      "unicorn/no-reduce": 0
+    },
+    "envs": [
+      "mocha"
+    ]
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "singleQuote": true,
+    "trailingComma": "none"
+  }
+}

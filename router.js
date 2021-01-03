@@ -4,17 +4,10 @@ const {test} = require('./upload');
 
 const router = new (require('koa-router'))();
 
-/*
-router.get('/',function(req,res) {
-    res.sendFile(__dirname +'index.html');
-});
-*/
 
 router.get('/ajoutauthor', testAuthor);
-router.get('/', test);
+router.get('/upload', test);
 
 module.exports = {router};
-
-
 
 

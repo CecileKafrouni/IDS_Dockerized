@@ -1,11 +1,11 @@
-//const mongoose = require('mongoose');
 const mongodb = require("mongodb").MongoClient;
 const fs = require("fs");
 const csv = require("fast-csv");
 
 let url = 'mongodb://localhost:27017/authortest';
 
-let stream = fs.createReadStream("testauthor.csv");
+let stream = fs.createReadStream("C:/Users/cecil/Desktop/JS/Projet/storage/testauthor.csv");
+
 let csvData = [];
 
 let csvStream = csv

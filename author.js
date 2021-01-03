@@ -10,7 +10,7 @@ const authorSchema = mongoose.model('Author',{
 });
 
 const testAuthor = () => {
-    const author = new authorSchema({firstName: "test", lastName: "html"});
+    const author = new authorSchema({firstName: "test", lastName: "Uploaaad"});
     author.save().then(() => console.log('ok'));
 }
 

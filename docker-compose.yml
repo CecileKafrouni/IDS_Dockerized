@@ -8,7 +8,6 @@ services:
     networks:
       - acct-net
 
-
 #  acct:
 #    build: .
 #    volumes:
@@ -19,7 +18,6 @@ services:
 #      - 3000:3000
 #    networks:
 #      - acct-net
-
 
 networks:
   acct-net:

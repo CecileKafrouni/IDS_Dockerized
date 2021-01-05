@@ -6,7 +6,7 @@ const storeToDbFct = () => {
     console.log('debut fct');
     let url = 'mongodb://localhost:27017/fileDb';
 
-    let stream = fs.createReadStream("C:/Users/cecil/Desktop/JS/Projet/storage/storage.csv");
+    let stream = fs.createReadStream("D:\\MAJEURE-IA-ING3-COURS\\Tech-client-serveur\\PFE-dockerized\\IDS_Dockerized_test\\project\\Docker_Train\\storage\\storage.csv");
 
     let csvData = [];
 

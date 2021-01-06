@@ -1,13 +1,11 @@
 FROM node:latest
 
-RUN yarn global add gulp-cli
-
-WORKDIR acc-tournament
+WORKDIR app
 
 COPY package.json yarn.lock ./
 
-RUN yarn
+RUN npm install
 
 COPY . .
 
-CMD ["gulp"]
+CMD node index.js

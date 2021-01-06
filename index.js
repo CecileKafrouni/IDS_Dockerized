@@ -1,15 +1,15 @@
 const {testAuthor} = require('./db/schemaFileDb');
 
-const {fileToUploadForm, storeAndTrainForm, isStored} = require('./view/interface');
+const {fileToUploadForm, storeLocally, storeAndTrainModel} = require('./view/interface');
 
 const express = require('express');
 const app = express();
 
 app.get('/', fileToUploadForm);
 
-app.post('/train',storeAndTrainForm);
+app.post('/train',storeLocally);
 
-app.post('/store', isStored);
+app.post('/store', storeAndTrainModel);
 
 //app.get('/ajoutauthor', testAuthor);
 

@@ -1,7 +1,8 @@
     const formidable = require('formidable');
     const fs = require('fs');
+    const child_process = require('child_process');
 
-    const {storeToDbFct} = require('../db/storeToDb');
+    const {storeToDbFct} = require('../db/storeFileToDb');
 
     const fileToUploadForm = (req,res) => {
         res.writeHead(200, {'Content-Type': 'text/html'});
@@ -13,7 +14,7 @@
         return res.end();
     };
 
-    const storeAndTrainForm = (req, res) => {
+    const storeLocally = (req, res) => {
         const form = new formidable.IncomingForm();
         form.parse(req, function (err, fields, files) {
             const oldpath = files.filetoupload.path;
@@ -23,7 +24,7 @@
                 if (err) throw err;
                 res.writeHead(200, {'Content-Type': 'text/html'});
                 res.write('<form action="store" method="post" enctype="multipart/form-data">');
-                res.write('<p>File uploaded and moved!</p>');
+                res.write('<p>File moved locally into our storage.csv file!</p>');
                 res.write('<input type="submit" value="store">');
                 res.write('</form>');
                 res.end();
@@ -31,10 +32,31 @@
         });
     };
 
-    const isStored = (req, res) => {
-            storeToDbFct();
-            res.write('The file has been stored successfully ! ');
-            res.end();
+    const trainModel = () => {
+        child_process.spawnSync('docker', [ 'run', '-it', 'train_docker', 'Main.py' ], {
+            stdio: 'inherit'
+        });
+    }
+
+    const storeModelFromDockerTrainToLocal = () => {
+        child_process.spawnSync('docker', [ 'cp', 'trainer_container:/storage/finalized_model_gnb.sav', 'D:\\MAJEURE-IA-ING3-COURS\\Tech-client-serveur\\PFE-dockerized\\IDS_Dockerized_test\\project\\Docker_Train\\storage\\'], {
+            stdio: 'inherit'
+        });
+    }
+
+    const storeModelToDb = () => {
     };
 
-    module.exports = {fileToUploadForm, storeAndTrainForm, isStored};
+    const storeAndTrainModel = (req, res) => {
+        storeToDbFct();
+        res.write('<p>From storeToDbFct function : The file has been stored successfully into fileDb Database </p>!<br> ');
+        trainModel();
+        res.write('<p>From trainModel function : The file has been trained successfully ! </p><br>');
+        storeModelFromDockerTrainToLocal();
+        res.write('<p> --- SOON --- From storeModelFromDockerTrainToLocal function : The file has been stored locally !</p><br> ');
+        //storeModelToDb();
+        //res.write('<p>--- SOON --- From storeModelToDb function : The file has been stored successfully into ModelDb Database !</p><br> ');
+        res.end();
+    };
+
+    module.exports = {fileToUploadForm,storeLocally,storeAndTrainModel};

@@ -18,7 +18,7 @@
         const form = new formidable.IncomingForm();
         form.parse(req, function (err, fields, files) {
             const oldpath = files.filetoupload.path;
-            const newpath = 'D:\\MAJEURE-IA-ING3-COURS\\Tech-client-serveur\\PFE-dockerized\\IDS_Dockerized_test\\project\\Docker_Train\\storage\\' + 'storage.csv';
+            const newpath = 'C:\\Users\\cecil\\Desktop\\JS\\Projet\\Docker_Train\\storage\\' + 'storage.csv';
 
             fs.copyFile(oldpath, newpath, function (err) {
                 if (err) throw err;
@@ -39,7 +39,7 @@
     }
 
     const storeModelFromDockerTrainToLocal = () => {
-        child_process.spawnSync('docker', [ 'cp', 'trainer_container:/storage/finalized_model_gnb.sav', 'D:\\MAJEURE-IA-ING3-COURS\\Tech-client-serveur\\PFE-dockerized\\IDS_Dockerized_test\\project\\Docker_Train\\storage\\'], {
+        child_process.spawnSync('docker', [ 'cp', 'trainer_container:/storage/finalized_model_gnb.sav', 'C:\\Users\\cecil\\Desktop\\JS\\Projet\\Docker_Train\\storage'], {
             stdio: 'inherit'
         });
     }

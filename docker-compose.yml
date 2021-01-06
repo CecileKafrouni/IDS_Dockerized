@@ -7,17 +7,15 @@ services:
       - 27017:27017
     networks:
       - acct-net
+ #app:
+  #  container_name: app
+   # restart: always
+    #build: .
+    #ports:
+    #  - 3000:3000
+    #links:
+     # - mongo
 
-#  acct:
-#    build: .
-#    volumes:
-#      - type: bind
-#        source: ./
-#        target: /acc-tournament
-#    ports:
-#      - 3000:3000
-#    networks:
-#      - acct-net
 
 networks:
   acct-net:

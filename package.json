@@ -8,6 +8,7 @@
     "code-style": "xo"
   },
   "dependencies": {
+    "child_process": "^1.0.2",
     "connect": "^3.7.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.0",
@@ -21,7 +22,8 @@
     "koa-static": "^5.0.0",
     "mongoose": "^5.11.9",
     "ramda": "^0.27.1",
-    "serve": "^11.3.2"
+    "serve": "^11.3.2",
+    "shelljs": "^0.8.4"
   },
   "devDependencies": {
     "axios": "^0.21.1",

@@ -4,7 +4,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 import time
 import pandas as pd
-#import Modeles_ML as ml
 import pickle
 
 def gnb(df):

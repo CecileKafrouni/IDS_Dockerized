@@ -11,6 +11,4 @@ COPY . .
 
 COPY storage/storage.csv /usr/src/app/storage/
 
-CMD["sleep", "infinity"]
-
 ENTRYPOINT ["python3"]
